@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>findid</title>
+
+  <link rel="stylesheet" href="tmon (1)/main (2).css">
+  <link rel="stylesheet" href="search_ID.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+    let getname = sessionStorage.getItem('name')
+    let getid = sessionStorage.getItem('id')
+    let getpw = sessionStorage.getItem('pw')
+    let getemail = sessionStorage.getItem('email')
+    let rand=0
+
+    console.log($('.find_inputs_area').first())
+    certCodeTimer = () => {
+      let timer = 3 * 60 - 1,
+        $display = $("#guide_certcodetimer #time"),
+        minutes, seconds;
+      let certCodeInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        $display.html(minutes + "분" + seconds + "초");
+
+        if (--timer < 0) {
+          clearInterval(certCodeInterval);
+          $("#guide_certcodetimer").hide();
+          $('#guide_cfmnum').css('display', 'block')
+          $('#guide_cfmnum').html("인증번호 유효시간이 초과되었습니다.");
+
+        }
+      }, 1000);
+    }
+    certCodeTimer2 = () => {
+      let timer = 60 * 60 - 1,
+        $display = $("#guide_certcodetimer2 #time2"),
+        minutes, seconds;
+      let certCodeInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        $display.html(minutes + "분" + seconds + "초");
+
+        if (--timer < 0) {
+          clearInterval(certCodeInterval);
+          $("#guide_certcodetimer2").hide();
+          $('#guide_cfmnum2').css('display', 'block')
+          $('#guide_cfmnum2').html("인증번호 유효시간이 초과되었습니다.");
+
+        }
+      }, 1000);
+    }
+
+    $(() => {
+      $('.find_inputs_area').last().hide()
+
+      $('input:radio').first().click(function () {
+        $('.find_inputs_area').first().show()
+        $('.find_inputs_area').last().hide()
+      })
+      $('input:radio').last().click(function () {
+        $('.find_inputs_area').first().hide()
+        $('.find_inputs_area').last().show()
+      })
+
+      $("#find_input_btn1").click(function () {
+        if ($('#txt_name').val() == "") {
+          $('.find_input_warn').first().css('display', 'block')
+        }
+        if ($('#txt_name').val() !== "") {
+          $('.find_input_warn').first().css('display', 'none')
+        }
+        if ($('#hp2').val() == "" || $('#hp3').val() == "") {
+          $('#guide_userHp').css('display', 'block')
+        }
+        if ($('#hp2').val() !== "" && $('#hp3').val() !== "") {
+          $('#guide_userHp').css('display', 'none')
+        }
+      })
+
+
+      $("#find_input_btn1").click(function () {
+        $('#guide_userHp2').css('display', 'none')
+        if (($('#hp2').val() !== "" && $('#hp3').val() !== "") && $('#txt_name').val() == sessionStorage.getItem('name')) {
+          rand = Math.floor((Math.random() * 900000) + 100000)
+
+          $('#txt_cfmnum').removeAttr('readonly').removeAttr('placeholder')
+            .css('background-color', 'white').focus()
+
+          $('#guide_cfmnum').css('display', 'none')
+          $('#guide_certcodetimer').css('display', 'block')
+
+          certCodeTimer()
+
+          setTimeout(() => {
+            $('#txt_cfmnum').val(rand)
+          }, 3000)
+
+        }else if(($('#hp2').val() !== "" && $('#hp3').val() !== "") &&($('#txt_name').val()!==getname)){
+          $('#guide_userHp2').css('display', 'block')
+        }
+      })
+
+      $(".find_footer_btn").click(function () {
+        if ($('#txt_name').val() !== "") {
+          $('.find_input_warn').first().css('display', 'none')
+        }
+        if ($('#txt_name').val() == "") {
+          $('.find_input_warn').first().css('display', 'block')
+        }
+
+        if ($('#hp2').val() !== "" && $('#hp3').val() !== "") {
+          $('#guide_userHp').css('display', 'none')
+        }
+        if ($('#hp2').val() == "" || $('#hp3').val() == "") {
+          $('#guide_userHp').css('display', 'block')
+        }
+
+        if ($('#txt_cfmnum').val() !== "") {
+          $('#guide_cfmnum').css('display', 'none')
+        }
+        if ($('#txt_cfmnum').val() == "") {
+          $('#guide_cfmnum').css('display', 'block')
+        }
+      })
+
+      $("#find_input_btn2").click(function () {
+        $('#guide_userMail2').css('display', 'none')
+        if ($('#txt_name2').val() == sessionStorage.getItem('name') &&
+        $('#txt_mail').val() == sessionStorage.getItem('email')) {
+          rand = Math.floor((Math.random() * 900000) + 100000)
+
+          $('#txt_cfmnum2').removeAttr('readonly').removeAttr('placeholder')
+            .css('background-color', 'white').focus()
+
+          $('#guide_cfmnum2').css('display', 'none')
+          $('#guide_certcodetimer2').css('display', 'block')
+
+          certCodeTimer2()
+
+          setTimeout(() => {
+            $('#txt_cfmnum2').val(rand)
+          }, 3000)
+
+        }else if ($('#txt_mail').val() !== '' && ($('#txt_name2').val() !== sessionStorage.getItem('name') ||
+        $('#txt_mail').val() !== sessionStorage.getItem('email'))){
+          $('#guide_userMail2').css('display', 'block')
+        }
+      })
+
+      $("#find_input_btn2").click(function () {
+        if ($('#txt_name2').val() == "") {
+          $('#guide_txt_name2').first().css('display', 'block')
+        }
+        if ($('#txt_name2').val() !== "") {
+          $('#guide_txt_name2').first().css('display', 'none')
+        }
+        if ($('#txt_mail').val() =='') {
+          $('#guide_userMail').css('display', 'block')
+        }
+        if ($('#txt_mail').val() !== '') {
+          $('#guide_userMail').css('display', 'none')
+        }
+      })
+
+      $(".find_footer_btn").click(function () {
+        if ($('#txt_name2').val() == "") {
+          $('#guide_txt_name2').first().css('display', 'block')
+        }
+        if ($('#txt_name2').val() !== "") {
+          $('#guide_txt_name2').first().css('display', 'none')
+        }
+        if ($('#txt_mail').val() =='') {
+          $('#guide_userMail').css('display', 'block')
+        }
+        if ($('#txt_mail').val() !=='') {
+          $('#guide_userMail').css('display', 'none')
+        }
+
+        if ($('#txt_cfmnum2').val() !== "") {
+          $('#guide_cfmnum2').css('display', 'none')
+        }
+        if ($('#txt_cfmnum2').val() == "") {
+          $('#guide_cfmnum2').css('display', 'block')
+        }
+        if($('#txt_cfmnum').val()!=='' && $('#txt_cfmnum').val() !==rand){
+          $('#err_cfmnum1').css('display', 'block')
+        }
+        if($('#txt_cfmnum').val()=='' || $('#txt_cfmnum').val() ==rand){
+          $('#err_cfmnum1').css('display', 'none')
+        }
+        if($('#txt_cfmnum2').val()!=='' && $('#txt_cfmnum2').val() !==rand){
+          $('#err_cfmnum2').css('display', 'block')
+        }
+        if($('#txt_cfmnum2').val()=='' || $('#txt_cfmnum2').val() ==rand){
+          $('#err_cfmnum2').css('display', 'none')
+        }
+      })
+
+      $(".find_footer_btn").click(function () {
+        if (($('#txt_name2').val() !== "" && $('#txt_mail').val() !== "" && $('#txt_cfmnum2').val() ==rand) ||
+          ($('#txt_name').val() !== "" && $('#hp2').val() !== "" && $('#hp3').val() !== "" && $('#txt_cfmnum')
+            .val() ==rand)) {
+          if (($('#txt_name').val() ==getname && $('#hp2').val() !== "" && $('#hp3').val() !== "")||($('#txt_mail').val() == getemail && $('#txt_name2').val()==getname)) {
+            $('#js_result_suc').css('display', 'block')
+
+            $('#js_result_id').html(getid)
+
+            $('.find_fds').css('display', 'none')
+          }
+          else {
+
+            $('.find_fds').css('display', 'none')
+
+            $('#js_result_fail').css('display', 'block')
+            
+          }
+        } 
+      })
+
+
+
+    }) //ready End
+  </script>
+
+</head>
+
+<body class="s_join_bg">
+  <div id="wrap">
+    <div id="header2">
+      <div class="wrap">
+        <div class="wrap-bg"
+          style="background-image:url(https://img1.tmon.kr/cdn4/viewAdmin/image/13478/7346/gnb_2000_362af_2fac3.gif);background-color:#FFFFFF">
+        </div>
+        <div class="inner">
+          <div class="slimgnb">
+            <ul class="slimgnb_1depth">
+              <li> <a href="tmon (1)/login.html" class="login">로그인</a></li>
+              <li> <a href="tmon (1)/join/MemberInfo.html" class="join">회원가입</a></li>
+              <li><a href="#" id="_helpMenu">고객센터</a></li>
+              <li><a href="#">입점문의</a></li>
+              <li><a href="#">광고문의</a></li>
+            </ul>
+          </div>
+          <div class="logo">
+            <a href="tmon (1)/main (1).html"></a>
+          </div>
+          <div class="srchbar">
+            <label for="top_srch">
+              <input type="text" id="top_srch" class="srch" name="keyword" title="검색어 입력" placeholder="검색어를 입력해 주세요.">
+              <span></span>
+            </label>
+          </div>
+          <div class="banner">
+          </div>
+          <ul class="my_menu">
+            <li class="my">
+              <span>마이티몬</span>
+              <i></i>
+            </li>
+            <li class="coupon"><span>쿠폰</span>
+              <i></i></li>
+            <li class="cart"><span>장바구니</span>
+              <i></i></li>
+            <li class="keyword"><span>알림</span>
+              <i></i></li>
+          </ul>
+        </div>
+        <nav id="gnb2" class="gnb">
+          <div class="inner">
+            <ul class="menu" role="tablist">
+              <li class="category"><button class="button_map">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon_map_all" width="15" height="12">
+                    <path fill-rule="evenodd" d="M0 12v-2h15v2H0zm0-7h15v2H0V5zm0-5h15v2H0V0z"></path>
+                  </svg>
+                </button></li>
+              <li><a href="#">단하루</a></li>
+              <li><a href="#">만원의행복</a></li>
+              <li><a href="#">베스트</a></li>
+              <li><a href="#">리퍼·임박</a></li>
+              <li><a href="#">제철음식</a></li>
+              <li><a href="#">푸드앤리빙</a></li>
+              <li><a href="#">TVON</a></li>
+              <li><a href="#">바로식탁</a></li>
+              <li><a href="#">여행/항공권</a></li>
+              <li><a href="#">티게더</a></li>
+              <li><a href="#">eeb</a></li>
+              <li><a href="#">기획전</a></li>
+              <li><a href="#">티몬월드</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div><!-- wrap -->
+    </div><!-- header2 -->
+    <div class="innerWrap">
+      <div class="container">
+        <div class="content">
+          <div class="find_idpw_area">
+
+            <h3 class="find_title">아이디/비밀번호 찾기</h3>
+
+            <div class="find_tab">
+              <a href="search_ID.html" class="find_tab_left active" role="button">
+                <span id="search_id">아이디 찾기</span>
+              </a>
+              <a href="search_PW.html" class="find_tab_right" role="button">
+                <span id="search_pw">비밀번호 찾기</span>
+              </a>
+            </div><!-- find_tab -->
+
+            <div class="ct_id" id="js_input">
+              <form class="find_fds" action="POST">
+                <fieldset class="find_fds">
+
+                  <div id="id_find_type" class="find_type checked">
+                    <label class="find_type_label">
+                      <input id="id_find_info" type="radio" name="find_info" class="find_type_radio" value="byhp"
+                        attr-opt="info" checked>
+                      <i></i>
+                      <em class="find_type_title"> 휴대전화로 찾기</em>
+                      <span class="find_type_desc">가입 당시 입력한 휴대전화 번호를 통해 아이디를 찾을 수 있습니다.</span>
+                    </label>
+                  </div>
+                  <div class="find_inputs_area">
+
+                    <div class="find_inputs">
+                      <label class="find_input_label">
+                        <span class="find_input_text">이름</span>
+                        <input type="text" class="find_input_default" id="txt_name">
+                      </label><!-- find_input_label 이름 인풋-->
+                      <span class="find_input_warn" style="display:none">
+                        이름을 입력해주세요
+                      </span><!-- 이름 없을때 오류 메세지-->
+                    </div>
+
+                    <div class="find_inputs iefix">
+                      <label class="find_input_label">
+                        <span class="find_input_text">휴대전화</span>
+                        <div class="direct" style="display: none;">
+                          <span>
+                            <input type="text">
+                          </span>
+                        </div>
+
+                        <select id="hp1" title="휴대폰번호">
+                          <option value="010">010</option>
+                          <option value="011">011</option>
+                          <option value="016">016</option>
+                          <option value="017">017</option>
+                          <option value="018">018</option>
+                          <option value="019">019</option>
+                          <option value="0502">0502</option>
+                          <option value="0505">0505</option>
+                          <option value="0506">0506</option>
+                          <option value="0507">0507</option>
+                        </select>
+                        <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="hp2"
+                          title="휴대폰번호 앞자리" class="find_input_small onlynumber" maxlength="4" style="width:90px">
+                        <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="hp3"
+                          title="휴대폰번호 뒷자리" class="find_input_small onlynumber" maxlength="4">
+                        <a id="find_input_btn1" class="find_input_btn" role="button" data-method="SMS"
+                          style="cursor:pointer">
+                          <span>인증번호</span>
+                        </a>
+                      </label><!-- find_input_label -->
+                      <span class="find_input_warn" id="guide_userHp" style="display:none">
+                        휴대전화 번호를 입력해주세요
+                      </span> <!-- 전화번호 없을때 오류 메세지-->
+                      <span class="find_input_warn" id="guide_userHp2" style="display:none">
+                        이름 또는 휴대전화 번호를 다시 확인 해주세요
+                      </span>
+                    </div>
+
+                    <div class="find_inputs">
+                      <label class="find_input_label">
+                        <span class="find_input_text">
+                          인증번호
+                        </span>
+                        <span class="find_input_wrap">
+                          <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="txt_cfmnum" class="find_input_gray" placeholder="인증번호 6자리 숫자 입력"
+                            readonly="readonly">
+                        </span>
+                        <span class="find_input_warn" id="guide_cfmnum" style="display:none">
+                          인증번호를 입력해주세요</span> <!-- 인증번호 없을때 오류 메세지 -->
+                          <span class="find_input_warn" id="err_cfmnum1" style="display:none">
+                            인증번호를 잘못입력하셨습니다</span>
+                        <span class="find_input_desc" id="guide_certcodetimer" style="display:none">
+                          "인증 유효시간 : "
+                          <span id="time" style="color:red">3분</span>
+                        </span>
+                      </label>
+                    </div><!-- find_inputs -->
+                  </div><!-- find_inputs_area -->
+                  <!-- 휴대전화 인증 -->
+
+
+
+                  <hr>
+
+
+
+                  <!-- 이메일 인증 -->
+                  <div class="find_type">
+                    <label class="find_type_label">
+                      <input type="radio" name="find_info" class="find_type_radio" value="byemail" attr-opt="info">
+                      <i></i>
+                      <em class="find_type_title">이메일로 찾기</em>
+                      <span class="find_type_desc">가입 당시 입력한 이메일 주소를 통해 아이디를 찾을 수 있습니다.</span>
+                    </label><!-- find_type_label -->
+                  </div><!-- find_type -->
+
+                  <div class="find_inputs_area">
+                    <div class="find_inputs">
+                      <label class="find_input_label">
+                        <span class="find_input_text">이름</span>
+                        <input type="text" class="find_input_default" id="txt_name2">
+                      </label>
+                      <span class="find_input_warn" id="guide_txt_name2" style="display:none">
+                        이름을 입력해주세요</span>
+                    </div>
+
+                    <div class="find_inputs">
+                      <label class="find_input_label">
+                        <span class="find_input_text">이메일</span>
+                        <input type="text" class="find_input_medium" id="txt_mail">
+                        <a id="find_input_btn2" class="find_input_btn" role="button" style="cursor:pointer"
+                          data-method="EMAIL">
+                          <span>인증번호</span>
+                        </a>
+                      </label>
+                      <span class="find_input_warn" id="guide_userMail" style="display:none">
+                        이메일 주소를 입력해주세요</span>
+                        <span class="find_input_warn" id="guide_userMail2" style="display:none">
+                          이름 또는 이메일 주소를 확인해주세요</span>
+                    </div>
+
+                    <div class="find_inputs">
+                      <label class="find_input_label">
+                        <span class="find_input_text">인증번호</span>
+                        <span class="find_input_wrap">
+                          <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="txt_cfmnum2" class="find_input_gray" placeholder="인증번호 6자리 숫자 입력"
+                            readonly="readonly">
+                        </span>
+                        <span class="find_input_warn" id="guide_cfmnum2" style="display:none">인증번호를 입력해주세요</span>
+                        <span class="find_input_warn" id="err_cfmnum2" style="display:none">
+                          인증번호를 잘못입력하셨습니다</span>
+                        <span class="find_input_desc" id="guide_certcodetimer2" style="display:none">
+                          "인증 유효시간 : "
+                          <span id="time2" style="color:red">60분</span>
+                        </span>
+                      </label>
+                      <span class="find_input_desc">인증번호는 발송 후 1시간 내에만 유효합니다.</span>
+                    </div>
+                  </div><!-- find_inputs_area  -->
+
+                </fieldset><!-- find_fds -->
+                <div class="find_footer">
+                  <p class="find_footer_desc">
+                    <i></i>
+                    "본인 인증시 제공되는 정보는 인증 이외의 용도로 이용 또는 저장하지 않습니다."
+                  </p>
+                  <p class="find_footer_desc">
+                    <i></i>
+                    "인증문자/이메일이 발송되지 않을 경우 ‘티몬’연락처가 스팸으로 분류되어 있는지 확인 바랍니다."
+                  </p>
+                  <a class="find_footer_btn" role="button" id="btnFind" style="cursor:pointer">
+                    <span>다음</span></a>
+                </div><!-- find_footer -->
+              </form><!-- find_fds -->
+            </div><!-- ct_id -->
+            <div id="js_result_suc" style="display:none;">
+              <div class="find_result">
+                <p class="find_result_desc">
+                  "고객님의 아이디는"
+                  <em id="js_result_id"></em>
+                  "입니다."
+                </p>
+              </div>
+              <div class="find_footer">
+                <p class="find_footer_desc">
+                  <i></i>
+                  비밀번호가 기억나지 않는 경우에는 
+                  <a>비밀번호 찾기</a>
+                  를 이용해 주세요.
+                </p>
+                <a href="tmon (1)/login.html" class="find_footer_btn">
+                  <span>로그인</span>
+                </a>
+              </div>
+            </div>
+            <div id="js_result_fail" style="display:none;">
+              <div class="find_result">
+                <p class="find_result_desc">
+                  입력하신 정보로 등록된 회원이 없습니다.
+                  <br>
+                  <em>정보를 다시 확인</em>
+                  하시고 시도해주세요.
+                </p>
+              </div>
+              <div class="find_footer">
+                <p class="find_footer_desc">
+                  <i></i>
+                  "본인 인증시 제공되는 정보는 인증 이외의 용도로 이용 또는 저장하지 않습니다."
+                </p>
+                <p class="find_footer_desc">
+                  <i></i>
+                  "인증문자/이메일이 발송되지 않을 경우 ‘티몬’연락처가 스팸으로 분류되어 있는지 확인 바랍니다."
+                </p>
+                <a id="btnFailConfrim" class="find_footer_btn" style="cursor:pointer">
+                  <span>확인</span>
+                </a>
+              </div><!-- find_footer -->
+            </div><!-- js_result_fail -->
+          </div><!-- find_idpw_area -->
+        </div><!-- content -->
+      </div><!-- container -->
+    </div><!-- innerWrap -->
+  </div><!-- id: wrap -->
+
+
+
+</body><!-- s_join_bg -->
+
+</html>

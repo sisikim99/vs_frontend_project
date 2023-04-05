@@ -1,0 +1,541 @@
+/* 기본설정 */
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+
+body, button, input, select, table, textarea {
+  font-size: 12px;
+  font-family: Dotum,"Apple SD Gothic Neo",sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0 auto;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  display: block;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+li {
+  list-style: none;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+#header2 .keyword_rank .ico_keyword_down, #header2 .keyword_rank .ico_keyword_up, #header2 .logo, #header2 .my_menu>li .menu:before, #header2 .my_menu>li.cart i, #header2 .my_menu>li.coupon i, #header2 .my_menu>li.keyword i, #header2 .my_menu>li.my i, #header2 .srchbar form .btn_search i, #header2 .super_save::before, #header2.fixed .logo, #header2.fixed .logo_img, .gnb .menu .ico_menu_new, .gnb_area .bookmark_mail a.btn_bizmall .icon, .gnb_area .bookmark_mail a.btn_finmall .icon, .slimgnb .help i.arrow, .slimgnb .ly_type_low .head i.arrow, .uio_auto_keyword li.latest .btn_del i {
+  display: inline-block;
+  overflow: hidden;
+}
+
+
+/* 기본설정 끝 */
+
+
+#header2 {
+  position: relative;
+  z-index: 999;
+  background: #fff;
+  font-family: "나눔고딕",NanumGothic,"Nanum Gothic",Dotum,Apple SD Gothic Neo,sans-serif;
+  letter-spacing: -.3px;
+  height: 156px;
+}
+
+#wrap {
+  min-width: 1100px;
+  min-height: 100%;
+  border: 1px solid black;
+  height: 158px;
+}
+
+#header2 .wrap-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 1100px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.logo a {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+/* 슬림바 */
+.slimgnb {
+  padding: 12px 0 8px;
+  font-size: 12px;
+  text-align: right;
+  height: 14px;
+}
+
+.slimgnb_1depth {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+}
+
+.slimgnb_1depth>li{
+  float: left;
+}
+
+.slimgnb_1depth::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+.slimgnb_1depth>li::before {
+  display: inline-block;
+  width: 1px;
+  height: 11px;
+  margin: 0 8px;
+  border-left: 1px solid #f0f2f5;
+  vertical-align: middle;
+  content: '';
+}
+
+.slimgnb_1depth>li a {
+  display: inline-block;
+  font-size: 11px;
+  font-family: "나눔고딕", NanumGothic, "Nanum Gothic", Dotum, Apple SD Gothic Neo, sans-serif;
+  color: #7d7e80;
+  letter-spacing: -.2px;
+
+}
+
+/* 슬림바 끝 */
+
+.logo {
+  float: left;
+  position: relative;
+  width: 344px;
+  height: 106px;
+  margin-top: -34px;
+  margin-left: -114px;
+}
+
+
+#header2 .srchbar {
+  float: left;
+  position: relative;
+  width: 442px;
+  height: 42px;
+  border: 2px solid #f27935;
+  background-color: #fff;
+}
+
+.srchbar input {
+  display: block;
+  width: 390px;
+  height: 22px;
+  margin: 10px 0 10px 15px;
+  padding: 0;
+  border: none;
+  background: 0 0;
+  font-weight: 600;
+  font-size: 17px;
+  font-family: "나눔고딕", NanumGothic, "Nanum Gothic", Dotum, Apple SD Gothic Neo, sans-serif;
+  line-height: normal;
+  text-align: left;
+  outline: 0;
+}
+
+.inner {
+  position: relative;
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.inner ul {
+  list-style: none;
+}
+
+#header2 .banner {
+  overflow: hidden;
+  float: left;
+  position: relative;
+  width: 130px;
+  height: 46px;
+  margin-left: 10px;
+}
+
+#header2 .special_banner {
+  overflow: hidden;
+  float: left;
+  position: relative;
+  width: 130px;
+  height: 46px;
+  margin-left: 10px;
+}
+
+
+/* my 메뉴 시작 */
+.my_menu {
+  /* float: right; */
+  position: relative;
+  margin: 0;
+}
+
+.my_menu>li {
+  float: left;
+  position: relative;
+}
+
+#header2 .my_menu>li>i {
+  display: inline-block;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+address, em, i {
+  font-style: normal;
+}
+
+#header2 .my_menu>li {
+  display: inline-block;
+  height: 46px;
+  padding: 0 18px;
+  font-weight: 550;
+  font-size: 14px;
+  line-height: 44px;
+  color: #16181a;
+}
+
+.my_menu>li>span:first-child {
+  position: absolute;
+  bottom: -9px;
+  left: 49%;
+  font-size: 11px;
+  line-height: 11px;
+  color: #16181a;
+  white-space: nowrap;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+#header2 .my_menu>li.my {
+  z-index: 20;
+}
+
+/* 마이페이지 */
+#header2 .my_menu>li.my i {
+  width: 32px;
+  height: 25px;
+  background: url(https://img3.tmon.kr/fe/release/service/static/home/p/im/header/sp-header.png?v=20221209162747) no-repeat;
+  background-position: -36px -143px;
+}
+
+/* 쿠폰 */
+.my_menu>li.coupon i{
+  width: 32px;
+  height: 25px;
+  background: url(https://img3.tmon.kr/fe/release/service/static/home/p/im/header/sp-header.png?v=20221209162747) no-repeat;
+  background-position: -190px -97px;
+}
+
+/* 장바구니 */
+.my_menu>li.cart i {
+  width: 32px;
+  height: 25px;
+  background: url(https://img3.tmon.kr/fe/release/service/static/home/p/im/header/sp-header.png?v=20221209162747) no-repeat;
+  background-position: 0 -143px;
+}
+
+/* 알림 */
+#header2 .my_menu>li.keyword i {
+  width: 32px;
+  height: 25px;
+  background: url(https://img3.tmon.kr/fe/release/service/static/home/p/im/header/sp-header.png?v=20221209162747) no-repeat;
+  background-position: -154px -97px;
+}
+
+/* my 메뉴 끝 */
+
+/* nav 시작 */
+
+#header2 #gnb2 {
+  position: relative;
+}
+
+#header2 .inner {
+  position: relative;
+  width: 1100px;
+  margin: 0 auto;
+}
+
+#header2 .inner+* {
+  clear: both;
+}
+
+.gnb {
+  border-top: 1px solid #f0f2f5;
+  border-bottom: 1px solid #e3e5e8;
+}
+
+.gnb .menu {
+  padding-left: 0px;
+  font-size: 0;
+  white-space: nowrap;
+}
+
+.gnb .menu>li {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+
+.gnb .menu>li>a {
+  display: inline-block;
+  position: relative;
+  padding: 0 12px;
+  font-weight: 550;
+  font-size: 15px;
+  line-height: 50px;
+  color: #16181a;
+}
+
+button {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  outline: 0;
+  cursor: pointer;
+}
+
+.gnb .category .button_map {
+  display: block;
+  overflow: hidden;
+  width: 55px;
+  height: 100%;
+  border: 1px solid #f0f2f5;
+  border-width: 0 1px;
+  background: #fff;
+  line-height: 50px;
+  text-align: center;
+  text-indent: 0;
+}
+
+.gnb .category .icon_map_all {
+  vertical-align: middle;
+}
+
+svg:not(:root) {
+  overflow-clip-margin: content-box;
+  overflow: hidden;
+}
+
+/* nav 끝 */
+
+/* container 시작 */
+
+#container {
+  overflow: hidden;
+  clear: both;
+  padding-bottom: 244px;
+}
+
+.tmon_home .main_banner {
+  padding-bottom: 23px;
+  position: relative;
+}
+
+.main_lnb {
+  position: absolute;
+  left: -1;
+  z-index: 10;
+  height: 530px;
+  white-space: nowrap;
+  /* -webkit-transform: translateX(-550px);
+  -ms-transform: translateX(-550px);
+  -o-transform: translateX(-550px);
+  transform: translateX(-550px); */
+}
+.main_lnb_ul_0 {
+  width: 200px;
+  height: 530px;
+}
+
+.main_lnb_li_0 {
+  padding-left: 20px;
+  color: white;
+  height: 10%;
+  line-height: 53px;
+  font-size: 14px;
+  font-weight: 700;
+  /* -webkit-box-sizing: border-box; */
+  /* -moz-box-sizing: border-box; */
+  /* box-sizing: border-box; */
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  background-color: rgba(0,0,0,.25);
+}
+
+.main_lnb_btn_0 span {
+  line-height: 53px;
+  font-weight: 900;
+  font-size: 16px;
+  font-family: "나눔고딕",NanumGothic,"Nanum Gothic",Dotum,Apple SD Gothic Neo,sans-serif;
+  color: #fff;
+  /* letter-spacing: -.2px; */
+  display: inline-block;
+  height: 100%;
+  /* vertical-align: top; */
+}
+
+.vwa_data {
+  position: relative;
+  height: 530px;
+}
+
+.images{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+.cnt {
+  display: inline-block;
+  padding-left: 14px;
+  font-size: 14px;
+  font-family: Tahoma;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.ctrl {
+  right: 50%;
+  bottom: -500px;
+  -webkit-transform: translateX(550px);
+  -ms-transform: translateX(550px);
+  -o-transform: translateX(550px);
+  transform: translateX(550px);
+}
+.ctrl {
+  /* -webkit-transform: translateX(442px); */
+  -ms-transform: translateX(442px);
+  -o-transform: translateX(442px);
+  transform: translateX(442px);
+}
+
+
+.ctrl {
+  position: absolute;
+  padding: 0 8px;
+  border-radius: 22px;
+  background: #30343b;
+  background: rgba(0,0,0,.2);
+  line-height: 44px;
+  color: #fff;
+  letter-spacing: -3px;
+}
+
+.ctrl button {
+  display: inline-block;
+  height: 16px;
+  padding: 0 12px;
+  line-height: 20px;
+  text-indent: 0;
+  vertical-align: middle;
+}
+
+.banner_button {
+  display: block;
+  position: absolute;
+  right: 50%;
+  bottom: 35px;
+  width: 44px;
+  height: 44px;
+  border-radius: 44px;
+  background-color: rgba(0,0,0,.2);
+}
+.ctrl button.prev {
+  border-right: 1px solid rgba(255,255,255,.2);
+}
+i{
+  display: block;
+}
+.ctrl button.prev i {
+  width: 9px;
+  height: 16px;
+  background: url(https://img2.tmon.kr/fe/release/service/static/home/p/im/home/sp-home.png?v=20221209162747) no-repeat;
+  background-position: -170px -187px;
+}
+
+.ctrl button.next i {
+  width: 9px;
+  height: 16px;
+  background: url(https://img2.tmon.kr/fe/release/service/static/home/p/im/home/sp-home.png?v=20221209162747) no-repeat;
+  background-position: -157px -187px;
+}
+
+.main_banner .big_banner .banner_button {
+    display: block;
+    position: absolute;
+    right: 50%;
+    bottom: 35px;
+    width: 44px;
+    height: 44px;
+    border-radius: 44px;
+    background-color: rgba(0,0,0,.2);
+}
+
+.banner_button_pause {
+  position: absolute;
+  right: 50%;
+  bottom: -500px;
+  width: 44px;
+  height: 44px;
+  -webkit-transform: translateX(496px);
+  -ms-transform: translateX(496px);
+  -o-transform: translateX(496px);
+  transform: translateX(496px);
+}
+
+.banner_button_more {
+  position: absolute;
+  right: 50%;
+  bottom: -500px;
+  width: 44px;
+  height: 44px;
+  -webkit-transform: translateX(550px);
+  -ms-transform: translateX(550px);
+  -o-transform: translateX(550px);
+  transform: translateX(550px);
+}
+
+/* 컨테 끝 */
+

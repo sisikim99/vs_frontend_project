@@ -1,0 +1,298 @@
+div {
+  display: block;
+}
+h3 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+em{
+  font-style: normal;
+}
+fieldset{
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding: 0;
+  min-inline-size: min-content;
+  border: 0;
+}
+label {
+  vertical-align: -1px;
+}
+input[type="radio" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 0px 5px;
+  padding: initial;
+  border: initial;
+  width: 13px;
+    height: 13px;
+    vertical-align: text-top;
+}
+
+
+.find_idpw_area {
+  width: 565px;
+  margin: 0 auto;
+  padding: 40px 0 15px;
+}
+.find_title {
+  display: block;
+  width: 244px;
+  height: 30px;
+  margin-bottom: 40px;
+  background-position: 0 0;
+}
+.find_tab {
+  display: block;
+  height: 59px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #f50;
+  text-align: center;
+  *zoom: 1;
+
+}
+.find_tab:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+.find_tab_right{
+    z-index: 1;
+    position: relative;
+    float: left;
+    width: 281px;
+    height: 38px;
+    padding-top: 20px;
+    border: 1px solid #d7d7d7;
+    border-bottom: 0;
+    background-color: #fff;
+    padding-bottom: 1px;
+    border-color: #f50;
+    margin-right: -1px
+    
+}
+.find_tab_left {
+  position: relative;
+  float: left;
+  width: 281px;
+  height: 38px;
+  padding-top: 20px;
+  border: 1px solid #d7d7d7;
+  border-right: 0;
+  border-bottom: 0;
+  background-color: #fff;
+}
+#search_pw{
+  color: #f50;
+  font-weight: bold;
+  font-size: 20px;
+}
+#search_id{
+  color: #d7d7d7;
+  font-size: 20px;
+}
+.find_type {
+  position: relative;
+  padding-bottom: 20px;
+  /* padding-left: 26px; */
+  color: #999;
+}  
+.find_type_label{
+  cursor: pointer;
+}
+.find_type_desc {
+  display: block;
+  margin-top: 9px;
+  padding-left: 26px;
+  font-size: 14px;
+}
+.find_type_radio:checked+i+.find_type_title {
+  color: #333;
+  font-weight: 700;
+    font-size: 17px;
+}
+.find_input_text {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 121px;
+  padding: 16px 0;
+  color: #333;
+  line-height: 1;
+  font-size: 15px;
+  font-weight: bold;
+}
+.find_type_radio+i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background-position: -200px -35px;
+}
+.find_idpw_area hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  margin: 39px 0 40px;
+  background: #f1f1f2;
+}
+.find_inputs {
+  position: relative;
+    margin: 20px 0;
+    padding-left: 121px;
+}
+.find_inputs_id{
+  position: relative;
+    margin: 20px 0;
+    padding-left: 121px;
+}
+.find_input_default, .find_input_gray, .find_input_bind, .find_input_small, .find_input_medium {
+  display: block;
+  width: 427px;
+  height: 16px;
+  padding: 14px 15px 13px 0;
+  line-height: 16px;
+  border: 1px solid #d7d7d7;
+  color: #999;
+  font-size: 14px;
+  font-weight: bold;
+  text-indent: 15px;
+}
+.find_input_desc {
+  display: block;
+  font-size: 11px;
+  line-height: 1;
+  margin-top: 10px;
+  color: #999;
+}
+.find_input_warn {
+  display: block;
+  font-size: 11px;
+  line-height: 1;
+  margin-top: 10px;
+  color: #ff3800;
+}
+.find_input_small{
+  float: left;
+  width: auto;
+}
+.find_input_btn {
+  display: inline-block;
+  width: 100px;
+  height: 29px;
+  padding-top: 14px;
+  border: 1px solid #f50;
+  color: #f50;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bold;
+}
+.find_input_medium{
+  float: left;
+  width: 320px;
+  margin-right: 5px;
+}
+.uio_select_box {
+  float: left;
+  position: relative;
+  *display: inline;
+  *zoom: 1;
+  *z-index: 101;
+  vertical-align: top;
+}
+.find_footer {
+  margin-top: 20px;
+  padding-top: 7px;
+  border-top: 1px solid #d7d7d7;
+}
+.find_footer_desc {
+  margin: 0;
+  font-size: 11px;
+  color: #999;
+  line-height: 18px;
+}
+.find_footer_btn {
+  display: block;
+  width: 120px;
+  height: 38px;
+  margin: 45px auto 0;
+  padding-top: 22px;
+  border: 1px solid #e54800;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  background-color: #f50;
+}
+.find_result_desc em {
+  color: #f50;
+}
+.find_result {
+  padding: 60px 0;
+}
+.find_result_desc {
+  margin: 7px 0 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+.find_input_gray{
+  background-color: #f5f5f5;
+}
+
+#container {
+  float: left;
+  position: relative;
+  width: 990px;
+}
+#content {
+  float: left;
+  position: relative;
+  width: 990px;
+  margin: 0 auto;
+  padding-top: 15px;
+  zoom: 1;
+}
+#hp1 {
+  float: left;
+  display: block;
+  width: 100px;
+  height: 45px;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #999;
+}
+#hp2{
+  width: 100px;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#hp3{
+  width: 100px;
+  margin-right: 5px;
+  float: left;
+}

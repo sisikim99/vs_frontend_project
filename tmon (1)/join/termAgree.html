@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>termAgree</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <style>
+        .div_header {
+            height: 89px;
+            border-bottom: 1px solid #dfe2e6;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            display: inline-block;
+            overflow: hidden;
+            width: 140px;
+            height: 36px;
+            margin-top: 28px;
+            background: url(https://img2.tmon.kr/resources/shared/p/im/membership/sp-membership.png?v=20221128141953) no-repeat;
+            background-position: 0 0;
+            font-size: 0;
+            color: transparent;
+        }
+
+        .div_body {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .terms_agree {
+            margin: 50px 0 20px 0;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 32px;
+            color: #000;
+            letter-spacing: -.43px;
+            text-align: center;
+        }
+
+        #check_all {
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+
+        .check_all {
+            padding: 21px 0 21px 28px;
+            border: 2px solid #f27935;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .div_term {
+            padding: 23px 30px 23px 30px;
+            border-bottom: 1px solid #dfe2e6;
+            font-size: 14px;
+            line-height: 24px;
+            cursor: pointer;
+        }
+
+        .txt_required {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            color: #f27935;
+            letter-spacing: -.18px;
+        }
+
+        .btns_area {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .joinBtn {
+            width: 25%;
+            height: 64px;
+            background-color: #f27935;
+            font-weight: 700;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: -.28px;
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="div_header">
+        <h1 class="logo">
+            <a href="../main (1).html">TMON</a>
+        </h1>
+    </div>
+
+    <div class="div_body">
+        <h2 class="terms_agree">이용약관 동의</h2>
+        <div class="check_all">
+            <input type="checkbox" id="checkAll" class="checkBox">
+            모두 확인, 동의합니다.
+        </div>
+        <div class="div_term">
+            <input type="checkbox" id="checkYouth" class="checkBox">
+            만 14세 이상입니다
+            <span class="txt_required">(필수)</span>
+        </div>
+        <div class="div_term">
+            <input type="checkbox" id="agreeNormal" class="checkBox">
+            이용약관 동의
+            <span class="txt_required">(필수)</span>
+        </div>
+        <div class="div_term">
+            <input type="checkbox" id="agreePrivacy" class="checkBox">
+            개인정보 수집 및 이용동의
+            <span class="txt_required">(필수)</span>
+        </div>
+        <div class="div_term">
+            <input type="checkbox" id="agreeOptInfo" class="checkBox">
+            선택정보 수집 및 이용동의
+        </div>
+        <div class="div_term">
+            <input type="checkbox" id="agreeEmail" class="checkBox">
+            이메일 마케팅 수신 동의
+        </div>
+        <div class="div_term">
+            <input type="checkbox" id="agreeOptInfo" class="checkBox">
+            개인정보 유효기간 3년 지정(미동의 시 1년)
+        </div>
+    </div>
+
+    <div class="btns_area">
+        <button class="joinBtn">동의하고 가입하기</button>
+    </div>
+
+    <script>
+        let all = document.getElementById('checkAll');
+        let sub = document.querySelectorAll('.checkBox')
+        let button = document.querySelector('.joinBtn')
+        let youth = document.getElementById('checkYouth')
+        let agree = document.getElementById('agreeNormal')
+        let privacy = document.getElementById('agreePrivacy')
+
+        checkAll.addEventListener('click', function () {
+            if (all.checked === true) {
+                for (let i of sub)
+                    i.checked = true;
+            } else if (all.checked === false) {
+                for (let i of sub)
+                    i.checked = false;
+            }
+        })
+
+        $('.check_all').click(function () {
+            if ($(this).children('input').prop('checked') == false) {
+                for (let i of sub) {
+                    i.checked = true;
+                }
+                return;
+            } else {
+                for (let i of sub) {
+                    i.checked = false
+                }
+                return;
+            }
+        })
+
+        $('.div_term').click(function () {
+            if ($(this).children('input').prop('checked') == false)
+                $(this).children('input').prop('checked', true)
+            else $(this).children('input').prop('checked', false)
+            
+            if ($(this).children('input').prop('checked') == false) all.checked = false;
+            else {
+                for (const iterator of $('input').slice(1)) {
+                    if (iterator.checked == false) {
+                        return;
+                    }
+                }
+                all.checked = true;
+            }
+        })
+
+        $('input').click(function () {
+            if (this.checked == true) {
+                this.checked = false;
+                all.checked = false;
+            } else {
+                this.checked = true;
+                for (const iterator of $('input').slice(1)) {
+                    if (iterator.checked == false) {
+                        return;
+                    }
+                }
+                all.checked = true;
+            }
+        })
+
+
+        button.addEventListener('click', function () {
+            if (youth.checked === false || agree.checked === false || privacy.checked === false) {
+                if (youth.checked === false) alert('만 14세 미만인 경우, 회원가입이 불가합니다.')
+                else if (agree.checked === false) alert('이용약관에 동의하셔야 가입이 가능합니다.')
+                else if (privacy.checked === false) alert('개인정보 수집에 동의하셔야 가입이 가능합니다.')
+            } else if (youth.checked === true || agree.checked === true || privacy.checked === true) {
+                location.href = "MemberInfo.html"
+            }
+        })
+    </script>
+
+</body>
+
+</html>

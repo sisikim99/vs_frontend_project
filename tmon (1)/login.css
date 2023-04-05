@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body, button, input, select, table, textarea {
+  font-size: 12px;
+  font-family: Dotum,"Apple SD Gothic Neo",sans-serif;
+}
+
+.wrap {
+  width: 100%;
+  height: 807px;
+  overflow: hidden;
+}
+
+.box {
+  margin: 110px 0 0 -246px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 900;
+}
+
+.up {
+  padding: 60px 50px 51px;
+  border: 1px solid #f2f4f5;
+  width: 390px;
+  /* background-image: url( https://img.tmon.co.kr/static/img/bg_login_page.png?v=1463967978&v=1486361930&v=1658968077&v=1674705938 ); */
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 30px auto;
+  width: 160px;
+  height: 40px;
+  background: url(http://img1.tmon.kr/static/img/sp_social_login.png?v=1486361930&v=1658968077&v=1674705938 ) no-repeat 0 0;
+}
+
+.login_info {
+  position: relative;
+  padding: 16px 19px 15px 19px;
+  width: 350px;
+  height: 17px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #aaa;
+  border: 1px solid #d7d7d7;
+  background-color: transparent;
+  margin-bottom: 6px;
+}
+
+.login_button {
+  background-color: #ff5000;
+  display: block;
+  height: 50px;
+  color: #FFF;
+  letter-spacing: -0.5px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  line-height: 51px;
+  margin-top: 3px;
+}
+
+.check_boxes {
+  padding-top: 10px;
+}
+
+.login_check {
+  margin-bottom: 0;
+  padding-right: 20px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: normal;
+  color: #555;
+  letter-spacing: -0.5px;
+}
+
+.login_check {
+  position: relative;
+  /* display: block; */
+  height: 20px;
+  padding-left: 30px;
+  margin-bottom: 9px;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  vertical-align: middle;
+}
+
+.login_fail{
+  display: none;
+  margin-bottom: 18px;
+  color: #ff0000;
+  letter-spacing: -0.5px;
+}
+
+
+.check_boxes input {
+  margin-top: -1px;
+  width: 13px;
+  height: 13px;
+  vertical-align: text-top;
+  position: absolute;
+  left: -9999px;
+}
+
+.check_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #707070;
+}
+
+input:checked + .check_box {
+  border: 1px solid #ff5000;
+}
+
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+
+.bottom{
+  padding-left: 0;
+  margin-top: 260px;
+  text-align: center;
+  border-top: 1px solid #f2f2f5;
+}
+
+.bottom a {
+  display: inline-block;
+  padding: 19px 18px 0 18px;
+  color: #333;
+}
